@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AuditTrailYo</title>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>AuditTrailYo</h1>
+        </div>
+        <div class="col-md-2">
+          <p><a href="/login" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-cloud"></span> Production login</a></p>
+        </div>
+        <div class="col-md-2">
+          <p><a href="/login" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-cloud"></span> Sandbox login</a></p>
+        </div>
+      </div>
+      <hr>
+
+      {% if error %}
+      <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Error!</strong> {{ error }}
+      </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="col-md-12">
+          <p class="lead">A Salesforce connected app to query, filter and visualize the actions taken in your Salesforce Org.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p>Provided under <a href="http://opensource.org/licenses/MIT">MIT license</a>. Source on GitHub.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!--
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">wow. much HTML. many layout. such javascript.</p>
+      </div>
+    </div>
+    -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        //$('span').tooltip();
+      });
+    </script>
+  </body>
+</html>

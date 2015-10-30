@@ -1,0 +1,1803 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.row {
+  position: relative
+}
+
+.container {
+  width: auto;
+  max-width: 1200px;
+  padding:30px;
+  position:relative;
+}
+
+.overlay {
+  width: 100%;
+  background-color: white;
+  opacity: 0.9;
+  min-height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.stream {
+  display:block;
+  line-height:35px
+}
+
+h1 {
+  margin-top:0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.mg-chart-title {
+    cursor: default;
+    font-size: 15px;
+    line-height: 1.42857143;
+    text-align: center;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+p.notice {
+  margin-top:30px;
+}
+
+.mg-x-axis text, .mg-y-axis text, .mg-histogram .axis text {
+  font-size:11px;
+}
+
+.mg-active-datapoint {
+  font-size:11px;
+}
+
+img.thumb {
+  width:45px;
+  height:45px;
+  float: right;
+  margin-left: 10px;
+}
+
+.inline {
+  display: inline-block;
+  line-height: 35px;
+}
+
+
+/* Classes */
+.entry {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+
+.accoun.delete {
+  border-left-color: #CF5C60
+}
+.accountlayout {
+  border-left-color: #F0F1F2
+}
+.AccountPRMEnabled {
+  border-left-color: #F0F1F2
+}
+.accounttransfer {
+  border-left-color: #F0F1F2
+}
+.activatedprocessdefinition {
+  border-left-color: #F0F1F2
+}
+.activateduser {
+  border-left-color: #F0F1F2
+}
+.activateRecordType {
+  border-left-color: #F0F1F2
+}
+.activateRecordTypeCustom {
+  border-left-color: #F0F1F2
+}
+.activitylayout {
+  border-left-color: #F0F1F2
+}
+.add_external_id {
+  border-left-color: #F0F1F2
+}
+.addCallCenterUsers {
+  border-left-color: #F0F1F2
+}
+.adddelegatedgroup {
+  border-left-color: #F0F1F2
+}
+.addedFieldToCompactLayout {
+  border-left-color: #F0F1F2
+}
+.addedprocessactionitem {
+  border-left-color: #F0F1F2
+}
+.addedtodelegatedgroup {
+  border-left-color: #F0F1F2
+}
+.addeduserpackagelicense {
+  border-left-color: #F0F1F2
+}
+.allowForecastSharingOnRole {
+  border-left-color: #F0F1F2
+}
+.analyticsSharingEnableOffOn {
+  border-left-color: #F0F1F2
+}
+.analyticsSharingEnableOnOff {
+  border-left-color: #F0F1F2
+}
+.articlelayout {
+  border-left-color: #F0F1F2
+}
+.assigneduserstomobileconfig {
+  border-left-color: #F0F1F2
+}
+.autoAssignedColors {
+  border-left-color: #F0F1F2
+}
+.campaignlayout {
+  border-left-color: #F0F1F2
+}
+.campaignMemberImport {
+  border-left-color: #F0F1F2
+}
+.caseassrule {
+  border-left-color: #F0F1F2
+}
+.caselayout {
+  border-left-color: #F0F1F2
+}
+.caseresponserule {
+  border-left-color: #F0F1F2
+}
+.changeApplicationCallbackUrl {
+  border-left-color: #F0F1F2
+}
+.changeConnectedApplicationName {
+  border-left-color: #F0F1F2
+}
+.changedActionOverrideContentCustom {
+  border-left-color: #F3AE4E
+}
+.changedApexClass {
+  border-left-color: #F3AE4E
+}
+.changedApexComponent {
+  border-left-color: #F3AE4E
+}
+.changedApexPage {
+  border-left-color: #F3AE4E
+}
+.changedApexTrigger {
+  border-left-color: #F3AE4E
+}
+.changedAppMenuItems {
+  border-left-color: #F3AE4E
+}
+.changedavantgouseroffon {
+  border-left-color: #F3AE4E
+}
+.changedCF {
+  border-left-color: #F3AE4E
+}
+.changedCF_RSFFieldCustom {
+  border-left-color: #F3AE4E
+}
+.changedCF_RSFFilter {
+  border-left-color: #F3AE4E
+}
+.changedCFCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFDefault {
+  border-left-color: #F3AE4E
+}
+.changedCFDefaultCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFDefaultFormula {
+  border-left-color: #F3AE4E
+}
+.changedCFDefaultFormulaCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFDevName {
+  border-left-color: #F3AE4E
+}
+.changedCFDevNameCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFFieldHelp {
+  border-left-color: #F3AE4E
+}
+.changedCFFieldHelpCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFFormula {
+  border-left-color: #F3AE4E
+}
+.changedCFFormulaCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFLength {
+  border-left-color: #F3AE4E
+}
+.changedCFLengthCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFLineCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFOptionOffOn {
+  border-left-color: #F3AE4E
+}
+.changedCFOptionOffOnCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFOptionOnOffCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFScale {
+  border-left-color: #F3AE4E
+}
+.changedCFScaleCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFType {
+  border-left-color: #F3AE4E
+}
+.changedCFTypeAutoNumCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFTypeCustom {
+  border-left-color: #F3AE4E
+}
+.changedCFTypeFormulaCustom {
+  border-left-color: #F3AE4E
+}
+.changedcommunitynickname {
+  border-left-color: #F3AE4E
+}
+.changedCompactLayoutField {
+  border-left-color: #F3AE4E
+}
+.changedconvrates {
+  border-left-color: #F3AE4E
+}
+.changedCustEntActivityOff {
+  border-left-color: #F3AE4E
+}
+.changedCustEntActivityOn {
+  border-left-color: #F3AE4E
+}
+.changedCustEntCspOff {
+  border-left-color: #F3AE4E
+}
+.changedCustEntCustHelp {
+  border-left-color: #F3AE4E
+}
+.changedCustEntDeployment {
+  border-left-color: #F3AE4E
+}
+.changedCustEntLabel {
+  border-left-color: #F3AE4E
+}
+.changedCustEntMask {
+  border-left-color: #F3AE4E
+}
+.changedCustEntMaskFromNull {
+  border-left-color: #F3AE4E
+}
+.changedCustEntRecName {
+  border-left-color: #F3AE4E
+}
+.changedCustEntRptOff {
+  border-left-color: #F3AE4E
+}
+.changedCustEntRptOn {
+  border-left-color: #F3AE4E
+}
+.changedCustEntTabMotif {
+  border-left-color: #F3AE4E
+}
+.changedCustEntTypeAutoNum {
+  border-left-color: #F3AE4E
+}
+.changedCustEntTypeText {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkBehavior {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkBehaviorCustom {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkBehaviorCustomPageItem {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkContent {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkContentCustom {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkContentCustomPageItem {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkContentSource {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkContentSourceCustom {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkContentSourceCustomPageItem {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkDisplayType {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkDisplayTypeCustom {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkLabel {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkLabelCustom {
+  border-left-color: #F3AE4E
+}
+.changedCustLinkNameCustom {
+  border-left-color: #F3AE4E
+}
+.changedCustomTabField {
+  border-left-color: #F3AE4E
+}
+.changedCustWebTabLabel {
+  border-left-color: #F3AE4E
+}
+.changedCustWebTabType {
+  border-left-color: #F3AE4E
+}
+.changedCustWebTabURL {
+  border-left-color: #F3AE4E
+}
+.changedDatacloudImportLimit {
+  border-left-color: #F3AE4E
+}
+.changedDataDotComCleanFieldMapping {
+  border-left-color: #F3AE4E
+}
+.changedDataDotComCleanOffOn {
+  border-left-color: #F3AE4E
+}
+.changedDataDotComCleanSettingsEntityOff {
+  border-left-color: #F3AE4E
+}
+.changeddatasets {
+  border-left-color: #F3AE4E
+}
+.changedemail {
+  border-left-color: #F3AE4E
+}
+.changedEmailDisclaimer {
+  border-left-color: #F3AE4E
+}
+.changedexcludedfieldsformobileconfig {
+  border-left-color: #F3AE4E
+}
+.changedfederationid {
+  border-left-color: #F3AE4E
+}
+.changedFlexiPage {
+  border-left-color: #F3AE4E
+}
+.changedForecastPeriod {
+  border-left-color: #F3AE4E
+}
+.changedForecastType {
+  border-left-color: #F3AE4E
+}
+.changedinteractionuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedinteractionuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedjigsawprospectinguseroffon {
+  border-left-color: #F3AE4E
+}
+.changedjigsawprospectinguseronoff {
+  border-left-color: #F3AE4E
+}
+.changedknowledgeuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedknowledgeuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedliveagentuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedliveagentuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedmarketinguseroffon {
+  border-left-color: #F3AE4E
+}
+.changedmarketinguseronoff {
+  border-left-color: #F3AE4E
+}
+.changedmobileuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedmobileuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedNetworksOn {
+  border-left-color: #F3AE4E
+}
+.changedofflineuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedofflineuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedOppProdictMultilinelayout {
+  border-left-color: #F3AE4E
+}
+.changedpassword {
+  border-left-color: #F3AE4E
+}
+.changedPicklist {
+  border-left-color: #F3AE4E
+}
+.changedPicklistArtType {
+  border-left-color: #F3AE4E
+}
+.changedPicklistCustom {
+  border-left-color: #F3AE4E
+}
+.changedPicklistDefault {
+  border-left-color: #F3AE4E
+}
+.changedPicklistDefaultCustom {
+  border-left-color: #F3AE4E
+}
+.changedPicklistReplace {
+  border-left-color: #F3AE4E
+}
+.changedPicklistReplaceCustom {
+  border-left-color: #F3AE4E
+}
+.changedPicklistSort {
+  border-left-color: #F3AE4E
+}
+.changedPicklistSortArtType {
+  border-left-color: #F3AE4E
+}
+.changedPicklistSortCustom {
+  border-left-color: #F3AE4E
+}
+.changedPicklistWithColor {
+  border-left-color: #F3AE4E
+}
+.changedPicklistWithColorCustom {
+  border-left-color: #F3AE4E
+}
+.changedprocessdefinition {
+  border-left-color: #F3AE4E
+}
+.changedprocessnode {
+  border-left-color: #F3AE4E
+}
+.changedprofileforuser {
+  border-left-color: #F3AE4E
+}
+.changedprofileforusercusttostd {
+  border-left-color: #F3AE4E
+}
+.changedprofileforuserstdtocust {
+  border-left-color: #F3AE4E
+}
+.changedprofileforuserstdtostd {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionDefault {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionDefaultCustom {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionLabel {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionLabelCustom {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionLayout {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionLayoutCustom {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionLayoutGlobal {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionName {
+  border-left-color: #F3AE4E
+}
+.changedQuickActionNameCustom {
+  border-left-color: #F3AE4E
+}
+.changedRecordTypeNameCustom {
+  border-left-color: #F3AE4E
+}
+.changedroleforuser {
+  border-left-color: #F3AE4E
+}
+.changedroleforuserfromnone {
+  border-left-color: #F3AE4E
+}
+.changedroleforusertonone {
+  border-left-color: #F3AE4E
+}
+.changedScontrolContent {
+  border-left-color: #F3AE4E
+}
+.changedsenderemail {
+  border-left-color: #F3AE4E
+}
+.changedsfcontentuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedsfcontentuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedStaticResource {
+  border-left-color: #F3AE4E
+}
+.changedsupportuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedsupportuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedTabSetLogo {
+  border-left-color: #F3AE4E
+}
+.changedTabSetTabs {
+  border-left-color: #F3AE4E
+}
+.changedusermobileconfig {
+  border-left-color: #F3AE4E
+}
+.changedusermobileconfigfromnone {
+  border-left-color: #F3AE4E
+}
+.changedusername {
+  border-left-color: #F3AE4E
+}
+.changedValidationActive {
+  border-left-color: #F3AE4E
+}
+.changedValidationFormula {
+  border-left-color: #F3AE4E
+}
+.changedValidationLocation {
+  border-left-color: #F3AE4E
+}
+.changedValidationMessage {
+  border-left-color: #F3AE4E
+}
+.changedValidationName {
+  border-left-color: #F3AE4E
+}
+.changedwirelessuseroffon {
+  border-left-color: #F3AE4E
+}
+.changedwirelessuseronoff {
+  border-left-color: #F3AE4E
+}
+.changedworkflowrule {
+  border-left-color: #F3AE4E
+}
+.changedworkflowtimetrigger {
+  border-left-color: #F3AE4E
+}
+.ChatterEmailAttachmentPrefOn {
+  border-left-color: #F0F1F2
+}
+.contactlayout {
+  border-left-color: #F0F1F2
+}
+.contractlayout {
+  border-left-color: #F0F1F2
+}
+.createdaccountlayout {
+  border-left-color: #4AB471
+}
+.createdActionOverrideCustom {
+  border-left-color: #4AB471
+}
+.createdactivitylayout {
+  border-left-color: #4AB471
+}
+.createdApexClass {
+  border-left-color: #4AB471
+}
+.createdApexComponent {
+  border-left-color: #4AB471
+}
+.createdApexPage {
+  border-left-color: #4AB471
+}
+.createdApexTrigger {
+  border-left-color: #4AB471
+}
+.createdcampaignlayout {
+  border-left-color: #4AB471
+}
+.createdcaselayout {
+  border-left-color: #4AB471
+}
+.createdCF {
+  border-left-color: #4AB471
+}
+.createdCF_RSFCustom {
+  border-left-color: #4AB471
+}
+.createdCFArtType {
+  border-left-color: #4AB471
+}
+.createdCFAutoNumCustom {
+  border-left-color: #4AB471
+}
+.createdCFCustom {
+  border-left-color: #4AB471
+}
+.createdCFFormula {
+  border-left-color: #4AB471
+}
+.createdCFFormulaCustom {
+  border-left-color: #4AB471
+}
+.createdCFHierarchy {
+  border-left-color: #4AB471
+}
+.createdCFLookup {
+  border-left-color: #4AB471
+}
+.createdCFLookupCustom {
+  border-left-color: #4AB471
+}
+.createdCFMasterDetailCustom {
+  border-left-color: #4AB471
+}
+.createdCompactLayout {
+  border-left-color: #4AB471
+}
+.createdcontactlayout {
+  border-left-color: #4AB471
+}
+.createdCustEnt {
+  border-left-color: #4AB471
+}
+.createdcustentlayout {
+  border-left-color: #4AB471
+}
+.createdCustEntTab {
+  border-left-color: #4AB471
+}
+.createdCustLink {
+  border-left-color: #4AB471
+}
+.createdCustLinkCustom {
+  border-left-color: #4AB471
+}
+.createdCustLinkCustomPageItem {
+  border-left-color: #4AB471
+}
+.createdcustomersuccessuser {
+  border-left-color: #4AB471
+}
+.createdCustomTab {
+  border-left-color: #4AB471
+}
+.createdCustRowCause {
+  border-left-color: #4AB471
+}
+.createdCustWebTab {
+  border-left-color: #4AB471
+}
+.createdDataCategory {
+  border-left-color: #4AB471
+}
+.createdDependency {
+  border-left-color: #4AB471
+}
+.createdemailalert {
+  border-left-color: #4AB471
+}
+.createdFieldSet {
+  border-left-color: #4AB471
+}
+.createdfieldupdate {
+  border-left-color: #4AB471
+}
+.createdFlexiPage {
+  border-left-color: #4AB471
+}
+.createdgroup {
+  border-left-color: #4AB471
+}
+.createdoppitemlayout {
+  border-left-color: #4AB471
+}
+.createdopplayout {
+  border-left-color: #4AB471
+}
+.createdpartneruser {
+  border-left-color: #4AB471
+}
+.createdPicklistWithColor {
+  border-left-color: #4AB471
+}
+.createdPicklistWithColorArtType {
+  border-left-color: #4AB471
+}
+.createdPicklistWithColorCustom {
+  border-left-color: #4AB471
+}
+.createdprocessdefinition {
+  border-left-color: #4AB471
+}
+.createdprocessnode {
+  border-left-color: #4AB471
+}
+.createdproductlayout {
+  border-left-color: #4AB471
+}
+.createdqueue {
+  border-left-color: #4AB471
+}
+.createdQuickAction {
+  border-left-color: #4AB471
+}
+.createdQuickActionCustom {
+  border-left-color: #4AB471
+}
+.createdQuickActionDefault {
+  border-left-color: #4AB471
+}
+.createdQuickActionDefaultCustom {
+  border-left-color: #4AB471
+}
+.createdRecordType {
+  border-left-color: #4AB471
+}
+.createdRecordTypeCustom {
+  border-left-color: #4AB471
+}
+.createdReportJob {
+  border-left-color: #4AB471
+}
+.createdrole {
+  border-left-color: #4AB471
+}
+.createdScontrol {
+  border-left-color: #4AB471
+}
+.createdStaticResource {
+  border-left-color: #4AB471
+}
+.createdTabSet {
+  border-left-color: #4AB471
+}
+.createduser {
+  border-left-color: #4AB471
+}
+.createduserlayout {
+  border-left-color: #4AB471
+}
+.createdworkflowrule {
+  border-left-color: #4AB471
+}
+.createdworkflowtimetrigger {
+  border-left-color: #4AB471
+}
+.createIpWhiteList {
+  border-left-color: #4AB471
+}
+.CSPAccountDisabled {
+  border-left-color: #F0F1F2
+}
+.CSPUserDisabled {
+  border-left-color: #F0F1F2
+}
+.custentlayout {
+  border-left-color: #F0F1F2
+}
+.customimport {
+  border-left-color: #F0F1F2
+}
+.customSitesTermsAccepted {
+  border-left-color: #F0F1F2
+}
+.dataCategoryBatchComplete {
+  border-left-color: #F0F1F2
+}
+.dataDotComOptOutsEnabledOffOn {
+  border-left-color: #F0F1F2
+}
+.deactivatedprocessdefinition {
+  border-left-color: #344A5F
+}
+.deactivateduser {
+  border-left-color: #344A5F
+}
+.deactivateRecordType {
+  border-left-color: #344A5F
+}
+.deactivateRecordTypeCustom {
+  border-left-color: #344A5F
+}
+.defaultcasequeue {
+  border-left-color: #F0F1F2
+}
+.defaultCustomEntityAccess {
+  border-left-color: #F0F1F2
+}
+.delAuthEndpoint {
+  border-left-color: #F0F1F2
+}
+.delete_external_id {
+  border-left-color: #CF5C60
+}
+.deleteConnectedApplication {
+  border-left-color: #CF5C60
+}
+.deletecontacts {
+  border-left-color: #CF5C60
+}
+.deletedaccountlayout {
+  border-left-color: #CF5C60
+}
+.deletedActionOverrideCustom {
+  border-left-color: #CF5C60
+}
+.deletedApexClass {
+  border-left-color: #CF5C60
+}
+.deletedApexComponent {
+  border-left-color: #CF5C60
+}
+.deletedApexPage {
+  border-left-color: #CF5C60
+}
+.deletedApexTrigger {
+  border-left-color: #CF5C60
+}
+.deletedcaselayout {
+  border-left-color: #CF5C60
+}
+.deletedCF {
+  border-left-color: #CF5C60
+}
+.deletedCFCustom {
+  border-left-color: #CF5C60
+}
+.deletedcontactlayout {
+  border-left-color: #CF5C60
+}
+.deletedCustEnt {
+  border-left-color: #CF5C60
+}
+.deletedcustentlayout {
+  border-left-color: #CF5C60
+}
+.deletedCustEntTab {
+  border-left-color: #CF5C60
+}
+.deletedCustLink {
+  border-left-color: #CF5C60
+}
+.deletedCustLinkCustom {
+  border-left-color: #CF5C60
+}
+.deletedCustLinkCustomPageItem {
+  border-left-color: #CF5C60
+}
+.deletedCustomTab {
+  border-left-color: #CF5C60
+}
+.deletedCustWebTab {
+  border-left-color: #CF5C60
+}
+.deletedDataCategory {
+  border-left-color: #CF5C60
+}
+.deletedemailalert {
+  border-left-color: #CF5C60
+}
+.deletedfieldupdate {
+  border-left-color: #CF5C60
+}
+.deletedFlexiPage {
+  border-left-color: #CF5C60
+}
+.deletedgroup {
+  border-left-color: #CF5C60
+}
+.deletedleadassrule {
+  border-left-color: #CF5C60
+}
+.deletedLoginIpRange {
+  border-left-color: #CF5C60
+}
+.deletedmobiledevice {
+  border-left-color: #CF5C60
+}
+.deletedPicklistMapWithColor {
+  border-left-color: #CF5C60
+}
+.deletedPicklistMapWithColorArtType {
+  border-left-color: #CF5C60
+}
+.deletedPicklistMapWithColorCustom {
+  border-left-color: #CF5C60
+}
+.deletedPicklistWithColor {
+  border-left-color: #CF5C60
+}
+.deletedPicklistWithColorCustom {
+  border-left-color: #CF5C60
+}
+.deletedprocessdefinition {
+  border-left-color: #CF5C60
+}
+.deletedprocessnode {
+  border-left-color: #CF5C60
+}
+.deletedprofile {
+  border-left-color: #CF5C60
+}
+.deletedqueue {
+  border-left-color: #CF5C60
+}
+.deletedQuickAction {
+  border-left-color: #CF5C60
+}
+.deletedQuickActionCustom {
+  border-left-color: #CF5C60
+}
+.deletedQuickActionDefaultCustom {
+  border-left-color: #CF5C60
+}
+.deletedRecordType {
+  border-left-color: #CF5C60
+}
+.deletedRecordTypeCustom {
+  border-left-color: #CF5C60
+}
+.deletedrole {
+  border-left-color: #CF5C60
+}
+.deletedScontrol {
+  border-left-color: #CF5C60
+}
+.deletedStaticResource {
+  border-left-color: #CF5C60
+}
+.deletedTabSet {
+  border-left-color: #CF5C60
+}
+.deletedtask {
+  border-left-color: #CF5C60
+}
+.deleteduserlayout {
+  border-left-color: #CF5C60
+}
+.deletedworkflowrule {
+  border-left-color: #CF5C60
+}
+.deleteIpWhiteList {
+  border-left-color: #CF5C60
+}
+.DeleteSandbox {
+  border-left-color: #CF5C60
+}
+.deleteSharingRule {
+  border-left-color: #CF5C60
+}
+.deleteSharingRuleFailed {
+  border-left-color: #CF5C60
+}
+.disableDeferGroupMembership {
+  border-left-color: #F0F1F2
+}
+.disableParallelApexTestingOffOn {
+  border-left-color: #F0F1F2
+}
+.disableParallelApexTestingOnOff {
+  border-left-color: #F0F1F2
+}
+.DiscardSandbox {
+  border-left-color: #F0F1F2
+}
+.EmailToChatterPrefOn {
+  border-left-color: #F0F1F2
+}
+.emptiedUserRecycleBin {
+  border-left-color: #F0F1F2
+}
+.enableDeferGroupMembership {
+  border-left-color: #F0F1F2
+}
+.enableIdp {
+  border-left-color: #F0F1F2
+}
+.enableVFInTouchOffOn {
+  border-left-color: #F0F1F2
+}
+.enableVFInTouchOnOff {
+  border-left-color: #F0F1F2
+}
+.enhancedLookupsOffOn {
+  border-left-color: #F0F1F2
+}
+.entity_history_field_tracked {
+  border-left-color: #F0F1F2
+}
+.entity_history_field_untracked {
+  border-left-color: #F0F1F2
+}
+.export {
+  border-left-color: #F0F1F2
+}
+.extAccessChanged {
+  border-left-color: #F0F1F2
+}
+.feed_defaults_tracked {
+  border-left-color: #F0F1F2
+}
+.feed_entity_tracked {
+  border-left-color: #F0F1F2
+}
+.feed_entity_untracked {
+  border-left-color: #F0F1F2
+}
+.feed_event_tracked {
+  border-left-color: #F0F1F2
+}
+.feed_event_untracked {
+  border-left-color: #F0F1F2
+}
+.feed_field_tracked {
+  border-left-color: #F0F1F2
+}
+.feed_field_untracked {
+  border-left-color: #F0F1F2
+}
+.filteredLookupActivate {
+  border-left-color: #F0F1F2
+}
+.filteredLookupCreate {
+  border-left-color: #F0F1F2
+}
+.filteredLookupCreateNewField {
+  border-left-color: #F0F1F2
+}
+.filteredLookupDeactivate {
+  border-left-color: #F0F1F2
+}
+.filteredLookupDelete {
+  border-left-color: #F0F1F2
+}
+.filteredLookupEdit {
+  border-left-color: #F0F1F2
+}
+.filteredLookupOptional {
+  border-left-color: #F0F1F2
+}
+.filteredLookupRequired {
+  border-left-color: #F0F1F2
+}
+.forceRecalc_RSFField {
+  border-left-color: #F0F1F2
+}
+.forceRecalc_RSFFieldCustom {
+  border-left-color: #F0F1F2
+}
+.frozeuser {
+  border-left-color: #F0F1F2
+}
+.granteduserpackagelicense {
+  border-left-color: #F0F1F2
+}
+.groupMembership {
+  border-left-color: #F0F1F2
+}
+.hardDeletedCF {
+  border-left-color: #F0F1F2
+}
+.hardDeletedCFCustom {
+  border-left-color: #F0F1F2
+}
+.hardDeletedCustEnt {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingEntityDeleted {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingEntityTracked {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingEntityUnTracked {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingFieldDeleted {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingFieldTracked {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingFieldUnTracked {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingFilterChanged {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingFilterDeleted {
+  border-left-color: #F0F1F2
+}
+.HistoricalTrendingFilterItemChanged {
+  border-left-color: #F0F1F2
+}
+.holiday.changedDescription {
+  border-left-color: #F3AE4E
+}
+.holiday.changedName {
+  border-left-color: #F3AE4E
+}
+.holiday.changedOnetimeDate {
+  border-left-color: #F3AE4E
+}
+.holiday_insert {
+  border-left-color: #F0F1F2
+}
+.idealayout {
+  border-left-color: #F0F1F2
+}
+.insertApplication {
+  border-left-color: #F0F1F2
+}
+.insertAuthProvider {
+  border-left-color: #F0F1F2
+}
+.insertAuthSecurityLevel {
+  border-left-color: #F0F1F2
+}
+.insertCertificate {
+  border-left-color: #F0F1F2
+}
+.insertConnectedApplication {
+  border-left-color: #F0F1F2
+}
+.insertServiceProvider {
+  border-left-color: #F0F1F2
+}
+.insertSharingRule {
+  border-left-color: #F0F1F2
+}
+.insertSharingRuleFailed {
+  border-left-color: #F0F1F2
+}
+.insightsEnabledOffOn {
+  border-left-color: #F0F1F2
+}
+.insightsEnabledOnOff {
+  border-left-color: #F0F1F2
+}
+.installedpackagingapp {
+  border-left-color: #F0F1F2
+}
+.leadassrule {
+  border-left-color: #F0F1F2
+}
+.leadConvertEnforceRulesOffOn {
+  border-left-color: #F0F1F2
+}
+.leadimport {
+  border-left-color: #F0F1F2
+}
+.leadlayout {
+  border-left-color: #F0F1F2
+}
+.leadtransfer {
+  border-left-color: #F0F1F2
+}
+.liveAgentEnabled {
+  border-left-color: #F0F1F2
+}
+.loginasgrantedtoorgadmin {
+  border-left-color: #111111
+}
+.loginasgrantedtopartnerbt {
+  border-left-color: #111111
+}
+.loginasgrantedtosfdc {
+  border-left-color: #111111
+}
+.loginasmodifiedtoorgadmin {
+  border-left-color: #111111
+}
+.loginasmodifiedtosfdc {
+  border-left-color: #111111
+}
+.loginasrevokedtoorgadmin {
+  border-left-color: #111111
+}
+.loginasrevokedtopartnerbt {
+  border-left-color: #111111
+}
+.loginasrevokedtosfdc {
+  border-left-color: #111111
+}
+.loginIpRange {
+  border-left-color: #F0F1F2
+}
+.massRemovedColors {
+  border-left-color: #F0F1F2
+}
+.multipleSamlConverted {
+  border-left-color: #F0F1F2
+}
+.multipleSamlEnabled {
+  border-left-color: #F0F1F2
+}
+.newProfileUIOffOn {
+  border-left-color: #F0F1F2
+}
+.newProfileUIOnOff {
+  border-left-color: #F0F1F2
+}
+.newValidation {
+  border-left-color: #F0F1F2
+}
+.notificationsForProjectOneOffOn {
+  border-left-color: #F0F1F2
+}
+.notificationsForProjectOneOnOff {
+  border-left-color: #F0F1F2
+}
+.oppitemlayout {
+  border-left-color: #F0F1F2
+}
+.opplayout {
+  border-left-color: #F0F1F2
+}
+.orderlayout {
+  border-left-color: #F0F1F2
+}
+.overridegrantaccessenabledoff {
+  border-left-color: #F0F1F2
+}
+.owdUpdateFinished {
+  border-left-color: #F0F1F2
+}
+.owdUpdateStarted {
+  border-left-color: #F0F1F2
+}
+.ParallelJobAbort {
+  border-left-color: #F0F1F2
+}
+.peraccountlayout {
+  border-left-color: #F0F1F2
+}
+.PermSetAssign {
+  border-left-color: #2A94D6
+}
+.PermSetClone {
+  border-left-color: #2A94D6
+}
+.PermSetCloneNoLicense {
+  border-left-color: #2A94D6
+}
+.PermSetCreate {
+  border-left-color: #2A94D6
+}
+.PermSetCreateNoLicense {
+  border-left-color: #2A94D6
+}
+.PermSetDelete {
+  border-left-color: #2A94D6
+}
+.PermSetDescriptionChange {
+  border-left-color: #2A94D6
+}
+.PermSetDeveloperNameChange {
+  border-left-color: #2A94D6
+}
+.PermSetDisableUserPerm {
+  border-left-color: #2A94D6
+}
+.PermSetEnableUserPerm {
+  border-left-color: #2A94D6
+}
+.PermSetEntityPermChanged {
+  border-left-color: #2A94D6
+}
+.PermSetFlsChanged {
+  border-left-color: #2A94D6
+}
+.PermSetLabelChange {
+  border-left-color: #2A94D6
+}
+.PermSetRecordTypeAdded {
+  border-left-color: #2A94D6
+}
+.PermSetRecordTypeRemoved {
+  border-left-color: #2A94D6
+}
+.PermSetTabSettingsChangedNew {
+  border-left-color: #2A94D6
+}
+.PermSetUnassign {
+  border-left-color: #2A94D6
+}
+.personalimport {
+  border-left-color: #F0F1F2
+}
+.pricebooklayout {
+  border-left-color: #F0F1F2
+}
+.PRMAccountDisabled {
+  border-left-color: #F0F1F2
+}
+.PRMUserDisabled {
+  border-left-color: #F0F1F2
+}
+.productlayout {
+  border-left-color: #F0F1F2
+}
+.profileClientSettingChangedCustom {
+  border-left-color: #2A94D6
+}
+.profileClientSettingChangedStandard {
+  border-left-color: #2A94D6
+}
+.profileClonedCustom {
+  border-left-color: #2A94D6
+}
+.profileClonedStandard {
+  border-left-color: #2A94D6
+}
+.profileCustAppCustom {
+  border-left-color: #2A94D6
+}
+.profileDefaultCustAppCustom {
+  border-left-color: #2A94D6
+}
+.profileDefaultRecordTypeChangedCustom {
+  border-left-color: #2A94D6
+}
+.profileDefaultRecordTypeChangedStandard {
+  border-left-color: #2A94D6
+}
+.profileDescriptionChanged {
+  border-left-color: #2A94D6
+}
+.profileFlsChangedCustom {
+  border-left-color: #2A94D6
+}
+.profileFlsChangedStandard {
+  border-left-color: #2A94D6
+}
+.profileHomePageLayoutChangedCustom {
+  border-left-color: #2A94D6
+}
+.profileLoginHoursChangedCustom {
+  border-left-color: #2A94D6
+}
+.profileModifyAllDataEnabledCustom {
+  border-left-color: #2A94D6
+}
+.profileOlpChangedCustom {
+  border-left-color: #2A94D6
+}
+.profileOlpChangedStandard {
+  border-left-color: #2A94D6
+}
+.profilePageLayoutChangedCustom {
+  border-left-color: #2A94D6
+}
+.profilePageLayoutChangedStandard {
+  border-left-color: #2A94D6
+}
+.profilePermChangedCustom {
+  border-left-color: #2A94D6
+}
+.profilePermChangedStandard {
+  border-left-color: #2A94D6
+}
+.profileRecordTypeAddedCustom {
+  border-left-color: #2A94D6
+}
+.profileRecordTypeAddedStandard {
+  border-left-color: #2A94D6
+}
+.profileRecordTypeRemovedCustom {
+  border-left-color: #2A94D6
+}
+.profileRecordTypeRemovedStandard {
+  border-left-color: #2A94D6
+}
+.profileRenamed {
+  border-left-color: #2A94D6
+}
+.profileTabsetChangedCustom {
+  border-left-color: #2A94D6
+}
+.profileTabsetChangedStandard {
+  border-left-color: #2A94D6
+}
+.profileTabsetOverrideCustom {
+  border-left-color: #2A94D6
+}
+.purged_uninstall_export {
+  border-left-color: #F0F1F2
+}
+.queueMembership {
+  border-left-color: #F0F1F2
+}
+.RateLimitingNotification {
+  border-left-color: #F0F1F2
+}
+.recalcAllSharingRuleFinished {
+  border-left-color: #F0F1F2
+}
+.recalcAllSharingRuleStarted {
+  border-left-color: #F0F1F2
+}
+.recalcGroupMembershipFinished {
+  border-left-color: #F0F1F2
+}
+.recalcGroupMembershipStarted {
+  border-left-color: #F0F1F2
+}
+.recalcSharingRuleComplete {
+  border-left-color: #F0F1F2
+}
+.recalcSharingRuleStart {
+  border-left-color: #F0F1F2
+}
+.recalcSingleSharingRuleComplete {
+  border-left-color: #F0F1F2
+}
+.recalcSingleSharingRuleStart {
+  border-left-color: #F0F1F2
+}
+.remoteproxy {
+  border-left-color: #F0F1F2
+}
+.removeddelegatedgroup {
+  border-left-color: #CF5C60
+}
+.removedDependency {
+  border-left-color: #CF5C60
+}
+.removedFieldOnCompactLayout {
+  border-left-color: #CF5C60
+}
+.removedfromdelegatedgroup {
+  border-left-color: #CF5C60
+}
+.removedprocessactionitem {
+  border-left-color: #CF5C60
+}
+.removedValidation {
+  border-left-color: #CF5C60
+}
+.renamedtab {
+  border-left-color: #F0F1F2
+}
+.reportdelete {
+  border-left-color: #CF5C60
+}
+.reportRuntimePredictionOnOff {
+  border-left-color: #F0F1F2
+}
+.resetpassword {
+  border-left-color: #F0F1F2
+}
+.role {
+  border-left-color: #F0F1F2
+}
+.RyppleThanksPrefoff {
+  border-left-color: #F0F1F2
+}
+.s1BannerPrefOnOff {
+  border-left-color: #F0F1F2
+}
+.s1BrowserEnabledOffOn {
+  border-left-color: #F0F1F2
+}
+.samlEnabled {
+  border-left-color: #F0F1F2
+}
+.samlEntityIdChange {
+  border-left-color: #F0F1F2
+}
+.samlIssuerChange {
+  border-left-color: #F0F1F2
+}
+.samlNewCert {
+  border-left-color: #F0F1F2
+}
+.samlRecipientUrlChange {
+  border-left-color: #F0F1F2
+}
+.samlSsoConfig_addLoginUrl {
+  border-left-color: #F0F1F2
+}
+.samlSsoConfig.create {
+  border-left-color: #4AB471
+}
+.samlSsoConfig_devName {
+  border-left-color: #F0F1F2
+}
+.samlSsoConfig_name {
+  border-left-color: #F0F1F2
+}
+.samlSubjectMappingChange {
+  border-left-color: #F0F1F2
+}
+.samlVersionChange {
+  border-left-color: #F0F1F2
+}
+.savedlistlayoutCase {
+  border-left-color: #F0F1F2
+}
+.savedlistlayoutContact {
+  border-left-color: #F0F1F2
+}
+.savedlistlayoutCustomObject {
+  border-left-color: #F0F1F2
+}
+.savedlistlayoutLead {
+  border-left-color: #F0F1F2
+}
+.servicecontractlayout {
+  border-left-color: #F0F1F2
+}
+.sessiongen {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_PermissionSet_ApexClass_Disabled {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_PermissionSet_ApexClass_Enabled {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_PermissionSet_ApexPage_Disabled {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_PermissionSet_ApexPage_Enabled {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_PermissionSet_ConnectedApplication_Disabled {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_PermissionSet_ConnectedApplication_Enabled {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_PermissionSet_TabSet_Enabled {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexClass_DisabledCustom {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexClass_DisabledStandard {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexClass_EnabledCustom {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexClass_EnabledStandard {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexPage_DisabledCustom {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexPage_DisabledStandard {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexPage_EnabledCustom {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ApexPage_EnabledStandard {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ConnectedApplication_DisabledCustom {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ConnectedApplication_EnabledCustom {
+  border-left-color: #F0F1F2
+}
+.SetupEntityAccessAudit_Profile_ConnectedApplication_EnabledStandard {
+  border-left-color: #F0F1F2
+}
+.setupSearchEnabledOffOn {
+  border-left-color: #F0F1F2
+}
+.suCSPAdminLogin {
+  border-left-color: #F0F1F2
+}
+.suCSPAdminLogout {
+  border-left-color: #F0F1F2
+}
+.suNetworkAdminLogin {
+  border-left-color: #F0F1F2
+}
+.suNetworkAdminLogout {
+  border-left-color: #F0F1F2
+}
+.suOrgAdminLogout {
+  border-left-color: #F0F1F2
+}
+.supportaccessadmins {
+  border-left-color: #F0F1F2
+}
+.suPRMAdminLogin {
+  border-left-color: #F0F1F2
+}
+.suPRMAdminLogout {
+  border-left-color: #F0F1F2
+}
+.tm_forecastUserChangedFor {
+  border-left-color: #F0F1F2
+}
+.translationExportSuccessful {
+  border-left-color: #F0F1F2
+}
+.unassignedusersfrommobileconfig {
+  border-left-color: #F0F1F2
+}
+.undeletedCF {
+  border-left-color: #CF5C60
+}
+.undeletedCFCustom {
+  border-left-color: #CF5C60
+}
+.unfrozeuser {
+  border-left-color: #F0F1F2
+}
+.uninstalledpackagingapp {
+  border-left-color: #F0F1F2
+}
+.unlockeduser {
+  border-left-color: #F0F1F2
+}
+.updatedCompactLayoutMapping {
+  border-left-color: #F0F1F2
+}
+.updatedDataCategoryDeveloperName {
+  border-left-color: #F0F1F2
+}
+.updatedDataCategoryMasterLabel {
+  border-left-color: #F0F1F2
+}
+.updatedDefaultCompactLayoutMapping {
+  border-left-color: #F0F1F2
+}
+.updatedDependency {
+  border-left-color: #F0F1F2
+}
+.updatedFieldSet {
+  border-left-color: #F0F1F2
+}
+.updatedgroup {
+  border-left-color: #F0F1F2
+}
+.updatedqueue {
+  border-left-color: #F0F1F2
+}
+.updateSharingRule {
+  border-left-color: #F0F1F2
+}
+.updateSharingRuleFailed {
+  border-left-color: #F0F1F2
+}
+.upgradedpackagingapp {
+  border-left-color: #F0F1F2
+}
+.userAllowForecastingOff {
+  border-left-color: #F0F1F2
+}
+.userAllowForecastingOn {
+  border-left-color: #F0F1F2
+}
+.useremailchangesent {
+  border-left-color: #F0F1F2
+}
+.userlayout {
+  border-left-color: #F0F1F2
+}
+.value_ACTIVITY_LOGO_DOCUMENT_ID {
+  border-left-color: #F0F1F2
+}
+.value_CHATTER_EMAIL_FOOTER_TEXT {
+  border-left-color: #F0F1F2
+}
+.value_CHATTER_EMAIL_SENDER_NAME {
+  border-left-color: #F0F1F2
+}
+.value_CLEAN_ACCOUNT_MATCHING_TYPE {
+  border-left-color: #F0F1F2
+}
+.value_CLEAN_DUNS_RIGHT_THRESHOLD {
+  border-left-color: #F0F1F2
+}
+.value_MAX_CAMPAIGN_INF_TIMEFRAME {
+  border-left-color: #F0F1F2
+}
+.value_NUM_PRM_ROLES {
+  border-left-color: #F0F1F2
+}
+.value_SOFT_LIMIT_COST_LIMIT {
+  border-left-color: #F0F1F2
+}
+.value_SOFT_LIMIT_MAX_URI_PROPORTION {
+  border-left-color: #F0F1F2
+}
+.value_SOFT_LIMIT_QUEUE_SIZE {
+  border-left-color: #F0F1F2
+}
+.value_SOFT_LIMIT_QUEUE_TIMEOUT {
+  border-left-color: #F0F1F2
+}
+.visibleInCssCheckboxOn {
+  border-left-color: #F0F1F2
+}
+.WorkCalibrationPrefon {
+  border-left-color: #F0F1F2
+}
+.WorkCanvasPrefon {
+  border-left-color: #F0F1F2
+}
+.WorkRewardsPrefoff {
+  border-left-color: #F0F1F2
+}
+.WorkRewardsPrefon {
+  border-left-color: #F0F1F2
+}
+.WorkThanksPrefon {
+  border-left-color: #F0F1F2
+}

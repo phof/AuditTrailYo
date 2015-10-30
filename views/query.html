@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AuditTrailYo</title>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/public/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1>AuditTrailYo</h1>
+        </div>
+        <div class="col-md-5 text-right clearfix">
+          <p>
+            <img src='{{ user.photos.thumbnail }}' class='thumb img-rounded'>Logged in as <strong>{{ user.username }}</strong> &mdash; <a href="/logout">Logout</a>
+            <br>
+            You used <span class="badge" id="apiUsed">{{ apiUsed || "0" }}</span> API calls
+          </p>
+        </div>
+      </div>
+      <hr>
+
+      {% if error %}
+      <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Error!</strong> {{ error }}
+      </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="overlay hidden" id="overlay">
+            <div class="stream text-center hidden" id="streamBanner">New results will appear automatically <button type="button" class="btn btn-default" id="stopStream">Stop</button></div>
+            <div class="stream text-center hidden" id="spinnerBanner">Loading..</div>
+        </div>
+
+        <div class="col-md-12 form-inline text-center query-bar">
+          <span class="inline">Optionally filter by</span>
+          <div class="form-group">
+            <label class="sr-only" for="userId">userId</label>
+            <input type="text" class="form-control" id="userId" name="userId" placeholder="UserId" value="{{ userId }}">
+          </div>
+          <span class="inline">and/or by</span>
+          <div class="form-group">
+            <label class="sr-only" for="action">Action</label>
+            <input type="text" class="form-control" id="action" name="action" placeholder="Action" value="{{ action }}">
+          </div>
+          <span class="inline">then query</span>
+          <div class="form-group">
+            <label class="sr-only" for="action">Timeframe</label>
+            <select class="form-control selectpicker" name="timeframe" id="timeframe" data-width="auto">
+              <option data-hidden="true" data-icon="glyphicon-refresh">Get data</option>
+              <option value="3" {% if timeframe === "3" %}selected{% endif %}>Last 3 hours</option>
+              <option value="8" {% if timeframe === "8" %}selected{% endif %}>Last 8 hours</option>
+              <option value="24" {% if timeframe === "24" %}selected{% endif %}>Last 24 hours</option>
+              <option value="168" {% if timeframe === "168" %}selected{% endif %}>Last 7 days</option>
+              <option value="360" {% if timeframe === "360" %}selected{% endif %}>Last 15 days</option>
+              <option value="720" {% if timeframe === "720" %}selected{% endif %}>Last 30 days</option>
+              <option value="2160" {% if timeframe === "2160" %}selected{% endif %}>Last 90 days</option>
+            </select>
+          </div>
+          <span class="inline">or</span>
+          <button type="button" class="btn btn-default" autocomplete="off" id="streamData">
+            <span class="glyphicon glyphicon-repeat"></span> Stream new data
+          </button>
+        </div>
+
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div id="graphs">
+            <div id="graph1" class="chart"></div>
+            <div id="graph2" class="chart"></div>
+            <div id="graph3" class="chart"></div>
+          </div>
+        </div>
+        <div class="col-md-6" id="results">
+        </div>
+      </div>
+
+    </div>
+
+    <!--
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">wow. much HTML. many layout. such javascript.</p>
+      </div>
+    </div>
+    -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ICanHaz.js/0.10.3/ICanHaz.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.js"></script>
+
+    <script src="/public/moment-round.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script id="entry" type="text/html">
+      <div class="entry {% raw %}{{ Action }}{% endraw %}">
+        {% raw %}{{ Display }}{% endraw %}<br />
+        <small>[{% raw %}{{ Action }}{% endraw %}] {% raw %}{{ CreatedBy.Username }}{% endraw %} on {% raw %}{{ CreatedDate }}{% endraw %}</small>
+      </div>
+    </script>
+
+    <script>
+      var graphData = {};
+      var timeframeRequested = 0;
+      var streamInterval = false; // set to false so I can check if it exists
+
+      $(document).ready(function(){
+        var socket = io();
+
+        function showBanner(which) {
+          $("#overlay").removeClass('hidden');
+          $(which).removeClass('hidden');
+        }
+
+        function hideBanner() {
+          $("#overlay").addClass('hidden');
+          $("#spinnerBanner").addClass('hidden');
+          $("#streamBanner").addClass('hidden');
+        }
+
+        function getFormValues(options) {
+            var options = options || {
+              run: 0,
+              stream: 0
+            }
+            return {
+              userId: $("#userId").val(),
+              action: $("#action").val(),
+              timeframe: options.stream ? null : $("#timeframe").val(),
+              run: options.run,
+              stream: options.stream
+            }
+        }
+
+        function getData(options) {
+          showBanner('#spinnerBanner')
+          $("#results").empty(); $("#graph1").empty(); $("#graph2").empty(); $("#graph3").empty(); $("#graph4").empty(); graphData = {};
+          socket.emit('get some data', options);
+        }
+
+        function streamData(options) {
+          showBanner('#streamBanner')
+          console.log('Streaming new data every 60 seconds..')
+          streamInterval = window.setInterval(function() {
+            socket.emit('get some data', options);
+          }, 60 * 1000);
+        }
+
+        /* Get data upon request */
+        $('#timeframe').on('change', function() {
+          $('button').blur();
+          var values = getFormValues({ run: 1 })
+          var uriParams = $.param(values).replace(/&?[^=&]+=(&|$)/g,'') // serialize params and remove nulls
+          history.pushState("", "", "?" + uriParams);
+          getData(values)
+        });
+
+        /* Get data at runtime */
+        if({{ run || 0 }} && !{{ stream || 0 }}) {
+          getData({
+            timeframe: "{{ timeframe }}",
+            userId: "{{ userId }}",
+            action: "{{ action }}"
+          })
+        };
+
+        /* Stream data upon request */
+        $('#streamData').click(function() {
+          $('button').blur();
+          var values = getFormValues({ stream: 1 })
+          var uriParams = $.param(values).replace(/&?[^=&]+=(&|$)/g,'') // serialize params and remove nulls
+          history.pushState("", "", "?" + uriParams);
+          streamData(values)
+        });
+
+        /* Stream data at runtime */
+        if({{ stream || 0 }}) {
+          streamData({
+            userId: "{{ userId }}",
+            action: "{{ action }}"
+          });
+        };
+
+        /* Stop stream */
+        $('#stopStream').click(function() {
+          hideBanner();
+          clearInterval(streamInterval);
+          streamInterval = false;
+        });
+
+        /* Used API calls */
+        socket.on('apiUsed', function(int) {
+          $("#apiUsed").html(int)
+        });
+
+        /* Process data and populate graphs */
+        socket.on('data', function(results) {
+          if(!streamInterval) { hideBanner() }
+
+          if(results.length > 0) {
+            if(timeframeRequested <= 24) {
+              graph(results, [
+                { value: 5, unit: 'minutes', target: '#graph1', missing_is_zero: false },
+                { value: 30, unit: 'minutes', target: '#graph2', missing_is_zero: false },
+                { value: 1, unit: 'hours', target: '#graph3', missing_is_zero: false }
+              ]);
+            } else {
+              graph(results, [
+                { value: 24, unit: 'hours', target: '#graph1', missing_is_zero: true }
+              ]);
+            }
+
+            $.each(results, function(key, data) {
+              data.CreatedDate = moment(data.CreatedDate).format('MMMM Do YYYY, HH:mm:ss');
+              $('#results').prepend(ich.entry(data));
+            });
+
+            $('#results').prepend("<div><h2 class='mg-chart-title'>" + results.length + " results as of "+moment().format('MMMM Do YYYY, HH:mm:ss')+"</p></div>");
+          }
+        });
+
+        /* Graph function */
+        function graph(results, options) {
+          $.each(options, function(index, option) {
+            var result = _.map(results, function(value, key) {
+              return {
+                time: moment(value.CreatedDate).floor(option.value, option.unit).toISOString(),
+                value: 1
+              }
+            });
+
+            /* Store results for updating graphs later */
+            graphData[option.target] = _.union(graphData[option.target], result)
+
+            /* Group by time and graph it */
+            var graph = _.chain(graphData[option.target])
+            .groupBy("time")
+            .map(function(value, key) {
+              return {
+                time: moment(key).toDate(),
+                value: value.length
+              }
+            })
+            .value();
+
+            MG.data_graphic({
+              data: graph,
+              full_width: true,
+              height: 200,
+              target: option.target,
+              x_accessor: "time",
+              y_accessor: "value",
+              interpolate: "linear",
+              missing_is_zero: option.missing_is_zero,
+              title: 'In ' + option.value + ' ' + option.unit + ' intervals'
+            });
+          });
+        }
+
+        /* Error handling */
+        socket.on('haz error', function(err){
+          hideBanner('spinnerBanner')
+          if(err === "INVALID_SESSION_ID") {
+            location.href = '/'
+          } else {
+            alert('Oops! There was an error, try refreshing the page.')
+          }
+        });
+
+        /* Fixed Graphs */
+        var elementPosition = $('#graphs').offset();
+        if($(window).width() > 992) {
+          $(window).scroll(function(){
+            if($(window).scrollTop() > elementPosition.top){
+              $('#graphs').css('position','fixed').css('top','0');
+            } else {
+              $('#graphs').css('position','relative');
+            }
+          });
+        }
+
+        $(window).on("popstate", function(e) {
+          location.reload();
+        });
+
+      });
+    </script>
+  </body>
+</html>
