@@ -6,7 +6,7 @@ module.exports = {
     redirectUri: process.env.redirectUri
   },
   express: {
-    cookieSecret: process.env.cookieSecret
+    cookieSecret: process.env.cookieSecret,
     port: process.env.PORT || 8080
   }
 }
