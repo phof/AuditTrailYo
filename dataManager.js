@@ -10,7 +10,8 @@ var DataManager = function (session) {
   self.conn = new jsforce.Connection()
 
   self.getServerTimestamp = function (cb) {
-    self.conn.getServerTimestamp(function (err, result) {
+    // self.conn.getServerTimestamp(function (err, result) {
+    self.conn.soap.getServerTimestamp(function (err, result) {
       if (err) { return cb(err, null) }
       return cb(null, result)
     })
