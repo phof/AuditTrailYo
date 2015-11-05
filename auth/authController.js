@@ -8,8 +8,15 @@ var authController = {}
 
 authController.login = function (req, res) {
   var oauthConfig = config.get('oauth')
-  if (req.params.env === 'sandbox') { oauthConfig.loginUrl = 'https://test.salesforce.com' }
-  var oauth = new jsforce.OAuth2(oauthConfig)
+  var loginUrl = 'https://login.salesforce.com'
+  if (req.params.env === 'sandbox') { loginUrl = 'https://test.salesforce.com' }
+
+  var oauth = new jsforce.OAuth2({
+    loginUrl: loginUrl,
+    clientId: oauthConfig.clientId,
+    clientSecret: oauthConfig.clientSecret,
+    redirectUri: oauthConfig.redirectUri
+  })
   req.session.oauth = oauth // store oauth data in session
   res.redirect(oauth.getAuthorizationUrl({
     scope: 'id chatter_api api'
